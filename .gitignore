@@ -4,3 +4,4 @@
 .idea/Storage.iml
 .idea/modules.xml
 .idea/misc.xml
+*.pyc
