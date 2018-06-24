@@ -18,7 +18,7 @@ class DictStorage(BaseStorage):
         Save a value with a given key in the dict.
         """
         if key in self._internal_dict and not override:
-            raise KeyAlreadyExists("Key ({}) already exists the the flag override==False")
+            raise KeyAlreadyExists("Key ({}) already exists and override==False".format(key))
 
         self._internal_dict[key] = value
 
@@ -28,7 +28,7 @@ class DictStorage(BaseStorage):
         """
         value = self._internal_dict.get(key)
         if not value:
-            raise KeyDoesntExist("Key ({}) doesn't exist in the storage")
+            raise KeyDoesntExist("Key ({}) doesn't exist in the storage".format(key))
 
         return value
 
@@ -37,6 +37,6 @@ class DictStorage(BaseStorage):
         Deletes the value with the given key.
         """
         if key not in self._internal_dict:
-            KeyDoesntExist("Key ({}) doesn't exist in the storage")
+            raise KeyDoesntExist("Key ({}) doesn't exist in the storage".format(key))
 
         del self._internal_dict[key]
