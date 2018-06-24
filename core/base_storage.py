@@ -10,11 +10,15 @@ class BaseStorage(metaclass=abc.ABCMeta):
     """
 
     @abc.abstractmethod
-    def save(self, value):
+    def save(self, key, value, override=False):
         """
         Saves a value in the storage.
+        @param key: The key which can be used to get the value later.
+        @type key: C{object}
         @param value: Any value that should be saved in the storage.
         @type value: C{object}
+        @param override: Should override an existing key.
+        @type override: C{bool}
         """
         pass
 
